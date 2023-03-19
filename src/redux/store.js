@@ -3,12 +3,6 @@ import initialState from './initialState';
 import shortid from 'shortid';
 
 const reducer = (state, action) => {
-  // if (action.type === 'ADD_COLUMN')
-  // return {
-  //   ...state,
-  //   columns: [...state.columns, { ...action.newColumn, id: shortid() }],
-  // };
-  // return state;
   switch (action.type) {
     case 'ADD_COLUMN':
       return {
@@ -20,6 +14,8 @@ const reducer = (state, action) => {
         ...state,
         cards: [...state.cards, { ...action.payload, id: shortid() }],
       };
+    case 'SEARCH_TITLE':
+      return { ...state, search: [{ ...action.payload }] };
     default:
       return state;
   }
