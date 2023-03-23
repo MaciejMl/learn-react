@@ -1,0 +1,39 @@
+@import '../../styles/settings.scss';
+
+.wrapper > {
+  a:first-child {
+    font-size: 24px;
+  }
+}
+.icon {
+  color: $color-light;
+  font-size: 24px;
+}
+
+nav {
+  background-color: darken($color-dark, 3%);
+}
+
+// .container {
+//   margin: 0 auto;
+// }
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links {
+  li {
+    display: inline-block;
+    padding: 10px;
+  }
+
+  a {
+    color: $color-light;
+    font-weight: bolder;
+    text-decoration: none;
+    font-family: $font-text;
+  }
+}
