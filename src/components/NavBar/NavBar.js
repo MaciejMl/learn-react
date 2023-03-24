@@ -4,7 +4,7 @@ import Container from '../Container/Container';
 const NavBar = () => {
   return (
     <nav>
-      <Container>
+      <Container className={styles.noMarginContainer}>
         <div className={styles.wrapper}>
           <a href='/' className={`${styles.icon} fa fa-tasks`}></a>
           <ul className={styles.links}>
