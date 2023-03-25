@@ -3,7 +3,7 @@ import PageTitle from '../PageTitle/PageTitle';
 
 const NotFound = () => {
   return (
-    <div id='notFund' className={styles.notFound}>
+    <div className={styles.notFound}>
       <PageTitle>404 NOT FOUND</PageTitle>
     </div>
   );

@@ -3,6 +3,7 @@ import Container from './components/Container/Container';
 import Favorite from './components/Favorite/Favorite';
 import NavBar from './components/NavBar/NavBar';
 import Home from './Home';
+import List from './components/List/List';
 import { Routes, Route } from 'react-router-dom';
 import NotFound from './components/NotFound/NotFound';
 
@@ -15,6 +16,7 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/favorite' element={<Favorite />} />
           <Route path='/about' element={<About />} />
+          <Route path='/List/:listId' element={<List />} />
           <Route path='/*' element={<NotFound />} />
         </Routes>
       </Container>

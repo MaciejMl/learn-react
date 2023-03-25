@@ -37,4 +37,7 @@ nav {
     text-decoration: none;
     font-family: $font-text;
   }
+  .linkActive {
+    color: $color-warning;
+  }
 }

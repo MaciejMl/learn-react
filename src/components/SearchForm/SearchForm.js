@@ -4,15 +4,22 @@ import Button from '../Button/Button';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { searchingCards } from '../../redux/store';
+import { useSelector } from 'react-redux';
+import { resetSearchString } from '../../redux/store';
 
 const SearchForm = () => {
-  const [title, setTitle] = useState('');
+  const searchString = useSelector((state) => state.searchString);
 
+  const [title, setTitle] = useState(searchString);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(searchingCards(title));
+    if (title === '') {
+      dispatch(resetSearchString());
+    } else {
+      dispatch(searchingCards(title));
+    }
   };
 
   return (
