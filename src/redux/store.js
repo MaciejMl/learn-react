@@ -19,6 +19,8 @@ export const getColumnsByList = ({ columns }, list) =>
   columns.filter((column) => column.listId === list);
 
 export const getAllLists = (state) => state.lists;
+export const getAllCards = (state) =>
+  state.cards.map((star) => star.isFavorite);
 
 //kreator akcji
 export const addColumn = (payload) => ({ type: 'ADD_COLUMN', payload });
@@ -27,6 +29,10 @@ export const addList = (payload) => ({ type: 'ADD_LIST', payload });
 export const searchingCards = (payload) => ({ type: 'SEARCH_TITLE', payload });
 export const resetSearchString = (payload) => ({
   type: 'RESET_STRING',
+  payload,
+});
+export const toggleFavorite = (payload) => ({
+  type: 'TOGGLE_CARD_FAVORITE',
   payload,
 });
 
@@ -40,7 +46,10 @@ const reducer = (state, action) => {
     case 'ADD_CARD':
       return {
         ...state,
-        cards: [...state.cards, { ...action.payload, id: shortid() }],
+        cards: [
+          ...state.cards,
+          { ...action.payload, id: shortid(), isFavorite: false },
+        ],
       };
     case 'ADD_LIST':
       return {
@@ -51,6 +60,15 @@ const reducer = (state, action) => {
       return { ...state, searchString: action.payload };
     case 'RESET_STRING':
       return { ...state, searchString: '' };
+    case 'TOGGLE_CARD_FAVORITE':
+      return {
+        ...state,
+        cards: state.cards.map((card) =>
+          card.id === action.payload
+            ? { ...card, isFavorite: !card.isFavorite }
+            : card
+        ),
+      };
     default:
       return state;
   }

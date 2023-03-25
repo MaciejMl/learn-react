@@ -1,0 +1,15 @@
+@use 'sass:math';
+@import '../../styles/settings.scss';
+
+.button {
+  border: none;
+  background-color: transparent;
+}
+.button:before {
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.activeStar {
+  color: goldenrod;
+}

@@ -40,13 +40,23 @@ const initialState = {
   ],
 
   cards: [
-    { id: '1', columnId: '1', title: 'This is Going to Hurt' },
-    { id: '2', columnId: '1', title: 'Interpreter of Maladies' },
-    { id: '3', columnId: '2', title: 'Harry Potter' },
-    { id: '4', columnId: '2', title: 'Star Wars' },
-    { id: '5', columnId: '3', title: 'The Witcher' },
-    { id: '6', columnId: '3', title: 'Skyrim' },
-    { id: '7', columnId: '4', title: 'Unchained melody' },
+    {
+      id: '1',
+      columnId: '1',
+      isFavorite: false,
+      title: 'This is Going to Hurt',
+    },
+    {
+      id: '2',
+      columnId: '1',
+      isFavorite: false,
+      title: 'Interpreter of Maladies',
+    },
+    { id: '3', columnId: '2', isFavorite: false, title: 'Harry Potter' },
+    { id: '4', columnId: '2', isFavorite: false, title: 'Star Wars' },
+    { id: '5', columnId: '3', isFavorite: false, title: 'The Witcher' },
+    { id: '6', columnId: '3', isFavorite: false, title: 'Skyrim' },
+    { id: '7', columnId: '4', isFavorite: false, title: 'Unchained melody' },
   ],
 
   searchString: '',
