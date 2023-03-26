@@ -22,6 +22,9 @@ export const getAllLists = (state) => state.lists;
 export const getAllCards = (state) =>
   state.cards.map((star) => star.isFavorite);
 
+export const getFavorites = (state) =>
+  state.cards.filter((card) => card.isFavorite);
+
 //kreator akcji
 export const addColumn = (payload) => ({ type: 'ADD_COLUMN', payload });
 export const addCard = (payload) => ({ type: 'ADD_CARD', payload });

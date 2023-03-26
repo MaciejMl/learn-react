@@ -1,8 +1,15 @@
 @use 'sass:math';
 @import '../../styles/settings.scss';
 
+article {
+  position: relative;
+}
 .column {
+  position: absolute;
   flex-shrink: 0;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
   width: calc(33% - 12px);
   background: $color-light;
   margin: 0 $base-size $base-size 0;
@@ -16,28 +23,6 @@
   }
 }
 
-.title {
-  text-align: center;
-  font-size: ($base-size * 1.5);
-  margin: 0 0 ($base-size * 1.5) 0;
-}
-
-.icon::before {
-  padding-right: $base-size;
-  color: $color-warning;
-  font-size: ($base-size * 2);
-  vertical-align: middle;
-  position: relative;
-  top: math.div($base-size, 3);
-}
-
 .cards {
   padding: math.div($base-size, 2) 0;
-}
-
-@media (max-width: 767px) {
-  .column {
-    width: 100%;
-    margin: 0 0 $base-size 0;
-  }
 }
