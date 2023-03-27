@@ -6,9 +6,8 @@ import { getFavorites } from '../../redux/store';
 
 const Favorite = () => {
   const favoriteCards = useSelector((state) => getFavorites(state));
-  const ss = favoriteCards.map((card) => card.isFavorite === true);
 
-  if (ss[0] === true) {
+  if (favoriteCards[0]) {
     return (
       <article>
         <PageTitle>Favorite</PageTitle>
