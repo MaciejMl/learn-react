@@ -1,6 +1,6 @@
 import styles from './Card.module.scss';
 import ButtonFavorite from '../ButtonFavorite/ButtonFavorite';
-import { toggleFavorite } from '../../redux/cardsRedux';
+import { toggleFavorite, eraseCard } from '../../redux/cardsRedux';
 import { useDispatch } from 'react-redux';
 
 const Card = (props) => {
@@ -9,11 +9,21 @@ const Card = (props) => {
   const handleClick = () => {
     dispatch(toggleFavorite(props.id));
   };
+  const eraseClick = () => {
+    dispatch(eraseCard(props.id));
+  };
 
   return (
     <li className={styles.card}>
       {props.title}
-      <ButtonFavorite isFavorite={props.isFavorite} handleClick={handleClick} />
+      <div>
+        <ButtonFavorite
+          icon={'fa fa-star-o'}
+          isFavorite={props.isFavorite}
+          handleClick={handleClick}
+        />
+        <ButtonFavorite icon={'fa fa-trash'} handleClick={eraseClick} />
+      </div>
     </li>
   );
 };

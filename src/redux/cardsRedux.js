@@ -19,6 +19,7 @@ const createActionName = (actionName) => `app/cards/${actionName}`;
 
 const ADD_CARD = createActionName('ADD_CARD');
 const TOGGLE_CARD_FAVORITE = createActionName('TOGGLE_CARD_FAVORITE');
+const ERASE_CARD = createActionName('ERASE_CARD');
 
 //action creator
 export const addCard = (payload) => ({ type: ADD_CARD, payload });
@@ -26,6 +27,7 @@ export const toggleFavorite = (payload) => ({
   type: TOGGLE_CARD_FAVORITE,
   payload,
 });
+export const eraseCard = (payload) => ({ type: ERASE_CARD, payload });
 
 const cardsReducer = (statePart = [], action) => {
   switch (action.type) {
@@ -36,6 +38,10 @@ const cardsReducer = (statePart = [], action) => {
         card.id === action.payload
           ? { ...card, isFavorite: !card.isFavorite }
           : card
+      );
+    case ERASE_CARD:
+      return statePart.map((card) =>
+        card.id === action.payload ? !card : card
       );
     default:
       return statePart;

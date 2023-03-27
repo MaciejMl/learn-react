@@ -8,7 +8,7 @@ const ButtonFavorite = (props) => {
       onClick={props.handleClick}
       className={clsx(
         styles.button,
-        'fa fa-star-o',
+        props.icon,
         props.isFavorite === true && styles.activeStar
       )}
     ></button>
