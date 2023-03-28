@@ -7,7 +7,7 @@ import { getFavorites } from '../../redux/cardsRedux';
 const Favorite = () => {
   const favoriteCards = useSelector((state) => getFavorites(state));
 
-  if (favoriteCards[0]) {
+  if (favoriteCards.length) {
     return (
       <article>
         <PageTitle>Favorite</PageTitle>
