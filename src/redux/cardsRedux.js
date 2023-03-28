@@ -40,10 +40,8 @@ const cardsReducer = (statePart = [], action) => {
           : card
       );
     case ERASE_CARD:
-      return statePart.map((card) =>
-        card.id === action.payload ? !card : card
-      );
-    default:
+      return [...statePart.filter((card) => card.id !== action.payload)];
+      default:
       return statePart;
   }
 };
